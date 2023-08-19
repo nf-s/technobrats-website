@@ -113,16 +113,8 @@ h1 {
   }
 }
 
-.event-link {
-  display: block;
-  user-select: none;
-}
-
-.event-link * {
-  user-select: none;
-}
-
 .event-card {
+  width: 100%;
   max-width: 750px;
   max-height: 400px;
   position: relative;
@@ -142,36 +134,38 @@ h1 {
   pointer-events: none;
 }
 
-.event-img,
-.event-img-blur {
+.event-link,
+.event-link-blur {
+  display: block;
+  user-select: none;
   border-radius: 10px;
-  aspect-ratio: 15/8;
-  object-fit: cover;
-  object-position: top center;
+  background-size: cover;
+  background-position: 50% 0;
+  max-width: 750px;
   max-height: 400px;
+  aspect-ratio: 16/9;
   width: 100%;
-  vertical-align: middle;
-}
-
-.event-img {
   position: relative;
   z-index: 1;
-  pointer-events: none;
 }
 
-.event-img-blur {
-  position: absolute;
+.event-link * {
+  user-select: none;
+}
+
+.event-link-blur {
+  z-index: 0;
   top: 0;
-  left: 0;
+  position: absolute;
   filter: blur(0.5rem);
   opacity: 0.3;
-  z-index: 0;
   transition: filter 0.2s ease, opacity 0.2s ease;
 }
 
-.event-img-blur:hover {
-  @media (min-width: 48rem) {
-    filter: blur(2rem);
-    opacity: 0.7;
-  }
+.event-link:hover + .event-link-blur,
+.event-link-touch + .event-link-blur {
+  /* @media (min-width: 48rem) { */
+  filter: blur(2rem);
+  opacity: 0.7;
+  /* } */
 }
