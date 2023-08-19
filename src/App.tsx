@@ -152,7 +152,12 @@ console.log(events);
 function EventCard({ event }: { event: Event }) {
   return (
     <div className="event-card">
-      <a href={event.href} title={event.title} target="_blank">
+      <a
+        href={event.href}
+        title={event.title}
+        target="_blank"
+        className="event-link"
+      >
         {event.showTitle ? (
           <div className="event-title">{event.title}</div>
         ) : null}
@@ -169,6 +174,12 @@ function EventCard({ event }: { event: Event }) {
             border: event.highlightColor
               ? `20px ${event.highlightColor} solid`
               : undefined,
+          }}
+          onTouchStart={(e) => {
+            e.currentTarget.classList.add("event-img-blur-touch");
+          }}
+          onTouchEnd={(e) => {
+            e.currentTarget.classList.remove("event-img-blur-touch");
           }}
         />
       </a>
