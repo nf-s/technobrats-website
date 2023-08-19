@@ -109,7 +109,7 @@ h1 {
   max-height: unset;
 
   @media (max-width: 48rem) {
-    height: 60vh;
+    height: 55vh;
   }
 }
 
@@ -169,8 +169,16 @@ h1 {
   transition: all 0.2s ease;
 }
 
-.event-img-blur:hover,
 .event-img-blur-touch {
-  filter: blur(2rem);
-  opacity: 0.7;
+  @media (max-width: 48rem) {
+    filter: blur(2rem);
+    opacity: 0.7;
+  }
+}
+
+.event-img-blur:hover {
+  @media (min-width: 48rem) {
+    filter: blur(2rem);
+    opacity: 0.7;
+  }
 }
