@@ -109,7 +109,7 @@ h1 {
   max-height: unset;
 
   @media (max-width: 48rem) {
-    height: 55vh;
+    height: 50vh;
   }
 }
 
