@@ -10,6 +10,7 @@ interface Event {
   imagePosition?: string;
   href: string;
   showTitle?: boolean;
+  highlightColor?: string;
 }
 
 const events: Event[] = [
@@ -26,6 +27,7 @@ const events: Event[] = [
     title: "AE",
     imageUrl: "img/events/ae.jpg",
     href: "https://www.facebook.com/events/638191437192315/",
+    highlightColor: "rgb(255 107 61)",
   },
   {
     date: new Date("2017-04-25"),
@@ -72,6 +74,7 @@ const events: Event[] = [
     imageUrl: "img/events/kissing-room.jpg",
     imagePosition: "0 20%",
     href: "https://www.facebook.com/events/192905361254192/",
+    highlightColor: "#aaa",
   },
   {
     date: new Date("2018-03-03"),
@@ -124,6 +127,7 @@ const events: Event[] = [
     title: "Multiverse 2020",
     imageUrl: "img/events/multiverse-2020.jpg",
     href: "https://www.facebook.com/events/366908864625820/",
+    highlightColor: "rgb(214 19 194)",
   },
   {
     date: new Date("2022-02-04"),
@@ -131,6 +135,7 @@ const events: Event[] = [
     title: "Multiverse 2022",
     imageUrl: "img/events/multiverse-2022.jpg",
     href: "https://www.facebook.com/events/1109654456456554/",
+    highlightColor: "rgb(124 148 106)",
   },
   {
     date: new Date("2023-01-26"),
@@ -138,6 +143,7 @@ const events: Event[] = [
     title: "Multiverse 2023",
     imageUrl: "img/events/multiverse-2023.jpg",
     href: "https://www.facebook.com/events/1636495220100607/",
+    highlightColor: "rgb(169 1 255)",
   },
 ];
 
@@ -158,7 +164,12 @@ function EventCard({ event }: { event: Event }) {
         <img
           src={event.imageUrl}
           className="event-img-blur"
-          style={{ objectPosition: event.imagePosition }}
+          style={{
+            objectPosition: event.imagePosition,
+            border: event.highlightColor
+              ? `20px ${event.highlightColor} solid`
+              : undefined,
+          }}
         />
       </a>
     </div>
@@ -204,7 +215,7 @@ function App() {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 8 8"
-                height="20px"
+                height="15px"
               >
                 <path d="M2.965 6.937L6.7 3.2l1.037 1.04-3.735 3.734z" />
                 <path d="M3.164.02h1.683v6.376H3.164z" />
