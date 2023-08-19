@@ -169,13 +169,6 @@ h1 {
   transition: filter 0.2s ease, opacity 0.2s ease;
 }
 
-.event-img-blur-touch {
-  @media (max-width: 48rem) {
-    filter: blur(2rem);
-    opacity: 0.7;
-  }
-}
-
 .event-img-blur:hover {
   @media (min-width: 48rem) {
     filter: blur(2rem);

@@ -175,12 +175,6 @@ function EventCard({ event }: { event: Event }) {
               ? `20px ${event.highlightColor} solid`
               : undefined,
           }}
-          onTouchStart={(e) => {
-            e.currentTarget.classList.add("event-img-blur-touch");
-          }}
-          onTouchEnd={(e) => {
-            e.currentTarget.classList.remove("event-img-blur-touch");
-          }}
         />
       </a>
     </div>
