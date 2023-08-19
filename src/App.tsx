@@ -152,7 +152,7 @@ console.log(events);
 function EventCard({ event }: { event: Event }) {
   return (
     <div className="event-card">
-      <a href={event.href} title={event.title}>
+      <a href={event.href} title={event.title} target="_blank">
         {event.showTitle ? (
           <div className="event-title">{event.title}</div>
         ) : null}
