@@ -187,12 +187,31 @@ function App() {
       </div>
 
       <div className="events-container">
-        <div className="events-buffer"></div>
         <div className="event-cards-container">
           {futureEvents.map((event) => (
             <EventCard event={event} />
           ))}
-          <h1>Past Events</h1>
+          <a
+            onClick={() => {
+              document
+                .getElementById("past-events")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            <h1 id="past-events">Past Events</h1>
+
+            <div className="arrow-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 8 8"
+                height="20px"
+              >
+                <path d="M2.965 6.937L6.7 3.2l1.037 1.04-3.735 3.734z" />
+                <path d="M3.164.02h1.683v6.376H3.164z" />
+                <path d="M4.007 7.98L.27 4.243l1.035-1.036 3.738 3.735z" />
+              </svg>
+            </div>
+          </a>
           {pastEvents.map((event) => (
             <EventCard event={event} />
           ))}

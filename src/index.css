@@ -1,5 +1,5 @@
 :root {
-  background-color: #242424;
+  background-color: rgba(0, 0, 0, 1);
 }
 
 body {
@@ -8,7 +8,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
 
-  background: #03001e;
+  background: rgba(0, 0, 0, 1);
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 
@@ -19,25 +19,43 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+a,
+a:visited {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+a:hover {
+  cursor: pointer;
+}
+
 h1 {
   font-family: var(--mono-font);
   font-weight: 100;
+  text-align: center;
 }
 
 .logo {
   width: 100vw;
-  height: 30vh;
-  background: linear-gradient(to top, #03001e, #623580, #c343a1);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  height: 40vh;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1),
+    #7c1260
+  );
+  text-align: center;
   justify-content: center;
+  z-index: 10;
+  position: absolute;
+  z-index: 10;
 
-  transition: height 0.2s ease;
+  padding-top: 50px;
 
-  /* Mobile less then 750 px wide */
-  @media (max-width: 750px) {
-    height: 20vh;
+  /* For mobile */
+  @media (max-width: 768px) {
+    padding-top: 20px;
+    height: 25vh;
   }
 }
 
@@ -47,15 +65,16 @@ h1 {
   width: 30vw;
 }
 
+.arrow-icon {
+  fill: rgba(255, 255, 255, 0.87);
+  text-align: center;
+}
+
 .events-container {
   width: 100vw;
   overflow: auto;
-
-  height: 70vh;
-  /* Mobile less then 750 px wide */
-  @media (max-width: 750px) {
-    height: 80vh;
-  }
+  height: 100vh;
+  position: absolute;
 }
 
 .events {
@@ -64,29 +83,19 @@ h1 {
   gap: 20px;
 }
 
-.events-buffer {
-  height: 5vh;
-  width: 100vw;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-  position: absolute;
-
-  z-index: 2;
-
-  top: 30vh;
-  transition: top 0.2s ease;
-
-  /* Mobile less then 750 px wide */
-  @media (max-width: 750px) {
-    top: 20vh;
-  }
-}
-
 .event-cards-container {
-  padding: 5vh 20px 100px 20px;
+  padding: 35vh 100px 100px 100px;
   display: flex;
-  gap: 100px;
   flex-direction: column;
   align-items: center;
+
+  gap: 100px;
+
+  /* For mobile */
+  @media (max-width: 768px) {
+    padding: 25vh 20px 100px 20px;
+    gap: 50px;
+  }
 }
 
 .event-card {
