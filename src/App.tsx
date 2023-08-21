@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import "./App.css";
 import "simpledotcss/simple.min.css";
 
@@ -151,24 +151,17 @@ const events: Event[] = [
 console.log(events);
 
 function EventCard({ event }: { event: Event }) {
-  const [eventTouch, setEventTouch] = useState<string>();
-
   return (
     <div className="event-card">
       <a
         href={event.href}
         title={event.title}
         target="_blank"
-        className={
-          eventTouch === event.title
-            ? "event-link event-link-touch"
-            : "event-link"
-        }
+        className="event-link"
         style={{
           backgroundImage: "url(" + event.imageUrl + ")",
           backgroundPosition: event.imagePosition,
         }}
-        onTouchStart={() => setEventTouch(event.title)}
       >
         {event.showTitle ? (
           <div className="event-title">{event.title}</div>
@@ -211,10 +204,12 @@ function App() {
 
       <div className="events-container">
         <div className="event-cards-container">
+          <div className="event-link-blur-mask"></div>
           {futureEvents.map((event) => (
             <EventCard event={event} />
           ))}
           <a
+            className="scroll-title"
             onClick={() => {
               document
                 .getElementById("past-events")
