@@ -1,6 +1,5 @@
-import React from "react";
-import "./App.css";
 import "simpledotcss/simple.min.css";
+import "./App.css";
 
 interface Event {
   date: Date;
@@ -123,7 +122,7 @@ const events: Event[] = [
     href: "https://www.facebook.com/events/256782880276279/",
   },
   {
-    date: new Date("2020-12-4"),
+    date: new Date("2020-12-04"),
     duration: 3,
     title: "Multiverse 2020",
     imageUrl: "img/events/multiverse-2020.jpg",
