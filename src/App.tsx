@@ -2,6 +2,7 @@ import "simpledotcss/simple.min.css";
 import "./App.css";
 
 interface Event {
+  id: string;
   date: Date;
   /** Duration in days */
   duration: number;
@@ -15,6 +16,7 @@ interface Event {
 
 const events: Event[] = [
   {
+    id: "2023-monkey-safari",
     date: new Date("2023-10-01"),
     duration: 1,
     title: "Monkey Safari",
@@ -22,6 +24,7 @@ const events: Event[] = [
     href: "https://www.facebook.com/events/1909436822783527/",
   },
   {
+    id: "2021-ae",
     date: new Date("2021-11-06"),
     duration: 1,
     title: "AE",
@@ -30,6 +33,7 @@ const events: Event[] = [
     highlightColor: "rgb(255, 107, 61, 0.5)",
   },
   {
+    id: "2017-bunker-1",
     date: new Date("2017-04-25"),
     duration: 1,
     title: "Bunker 1",
@@ -38,6 +42,7 @@ const events: Event[] = [
     href: "https://www.facebook.com/events/164132054097563/",
   },
   {
+    id: "2017-olivier-giacomotto",
     date: new Date("2017-06-11"),
     duration: 1,
     title: "Olivier Giacomotto",
@@ -45,6 +50,7 @@ const events: Event[] = [
     href: "https://www.facebook.com/events/659696310882548/",
   },
   {
+    id: "2017-bunker-2",
     date: new Date("2017-08-05"),
     duration: 1,
     title: "Bunker 2",
@@ -53,6 +59,7 @@ const events: Event[] = [
     href: "https://www.facebook.com/events/653835214826178/",
   },
   {
+    id: "2017-psybrats",
     date: new Date("2017-09-01"),
     duration: 1,
     title: "Psybrats",
@@ -60,6 +67,7 @@ const events: Event[] = [
     href: "https://www.facebook.com/events/831117957044203/",
   },
   {
+    id: "2017-bunker-3-anya",
     date: new Date("2017-10-25"),
     duration: 1,
     title: "Bunker 3 - Anya",
@@ -68,6 +76,7 @@ const events: Event[] = [
     href: "https://www.facebook.com/events/339010106511072/",
   },
   {
+    id: "2017-in-the-kissing-room",
     date: new Date("2017-11-18"),
     duration: 1,
     title: "In the Kissing Room",
@@ -77,6 +86,7 @@ const events: Event[] = [
     highlightColor: "rgba(255, 255, 255, 0.4)",
   },
   {
+    id: "2018-bunker-4",
     date: new Date("2018-03-03"),
     duration: 1,
     title: "Bunker 4",
@@ -85,6 +95,7 @@ const events: Event[] = [
     href: "https://www.facebook.com/events/206960583378110/",
   },
   {
+    id: "2018-tiger-stripes",
     date: new Date("2018-04-28"),
     duration: 1,
     title: "Tiger Stripes",
@@ -92,6 +103,7 @@ const events: Event[] = [
     href: "https://www.facebook.com/events/137463267090869/",
   },
   {
+    id: "2022-in-the-park",
     date: new Date("2022-03-19"),
     duration: 1,
     title: "Technobrats In The Park",
@@ -100,6 +112,7 @@ const events: Event[] = [
     showTitle: true,
   },
   {
+    id: "2022-in-the-park-2",
     date: new Date("2022-11-12"),
     duration: 1,
     title: "Technobrats In The Park 2",
@@ -108,6 +121,7 @@ const events: Event[] = [
     showTitle: true,
   },
   {
+    id: "2023-divergence",
     date: new Date("2023-04-15"),
     duration: 1,
     title: "Divergence",
@@ -115,6 +129,7 @@ const events: Event[] = [
     href: "https://www.facebook.com/events/1725072524667579/",
   },
   {
+    id: "2023-divergence-2",
     date: new Date("2023-06-15"),
     duration: 1,
     title: "Divergence 2",
@@ -122,6 +137,7 @@ const events: Event[] = [
     href: "https://www.facebook.com/events/256782880276279/",
   },
   {
+    id: "2020-multiverse",
     date: new Date("2020-12-04"),
     duration: 3,
     title: "Multiverse 2020",
@@ -130,6 +146,7 @@ const events: Event[] = [
     highlightColor: "rgba(214, 19, 194, 0.5)",
   },
   {
+    id: "2022-multiverse",
     date: new Date("2022-02-04"),
     duration: 3,
     title: "Multiverse 2022",
@@ -138,6 +155,7 @@ const events: Event[] = [
     highlightColor: "rgb(124 148 106)",
   },
   {
+    id: "2023-multiverse",
     date: new Date("2023-01-26"),
     duration: 4,
     title: "Multiverse 2023",
@@ -205,7 +223,7 @@ function App() {
         <div className="event-cards-container">
           <div className="event-link-blur-mask"></div>
           {futureEvents.map((event) => (
-            <EventCard event={event} />
+            <EventCard event={event} key={event.id} />
           ))}
           <a
             className="scroll-title"
@@ -230,7 +248,7 @@ function App() {
             </div>
           </a>
           {pastEvents.map((event) => (
-            <EventCard event={event} />
+            <EventCard event={event} key={event.id} />
           ))}
         </div>
       </div>
